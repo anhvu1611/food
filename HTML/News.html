@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/baiTapLon.css">
+    <link rel="stylesheet" href="../Icons/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.min.css">
+    <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/baiTapLon.js"></script>
+    <title>Tin tức</title>
+</head>
+<body>
+    <header class="header">
+        <!-- Header navbar -->
+        <nav class="header__navbar">
+            <span>Thời gian nhận đơn ship hàng 7:00 - 22:00</span>
+            <ul class="header__navbar-list">
+                <li class="header__nav-item"><a class="header__nav-item-link" onclick="signing()">Đăng nhập</a></li> <b>|</b>
+                <li class="header__nav-item" ><a class="header__nav-item-link"  href="../HTML/pageRegister.html" >Đăng ký</a></li>
+            </ul>
+        </nav>
+        <!-- Header with search -->
+        <div class="grid">
+            <div class="header-with-search">
+                <div class="grid__row">
+                        <div class="grid__column-3">
+                            <div class="header_logo">
+                                <a class="header_logo-link" href="../HTML/Index.html">
+                                    <img class="header_logo-img" src="../img/LOGOMAINs.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="grid__column-6">
+                            <div class="header__search">
+                                <input id="myInput" type="text" placeholder="Tìm kiếm sản phẩm">
+                                <button class="icon-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </div>
+                        <div class="grid__column-3">
+                            <div class="header__cart">
+                                <div class="header__cart-wrap">
+                                    <span>Giỏ hàng</span>
+                                    <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+                                    <div class="header__cart-list header__cart-list--no-cart">
+                                        <img src="../img/empty-cart.png" alt="" class="no_cart_img">
+                                        <span>Chưa có sản phẩm</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menu -->
+        <div class="header__menu">
+            <ul class="header__menu-parents">
+                <li class="header__menu-child"><a class="header__menu-child-link" href="../HTML/Index.html">Trang Chủ</a></li>
+                <li class="header__menu-child"><a class="header__menu-child-link" href="../HTML/GioiThieu.html">Giới Thiệu</a></li>
+                <li class="header__menu-child">
+                    <a class="header__menu-child-link" href="../HTML/allProducts.html">Sản phẩm <i class="fa-solid fa-caret-down"></i></a>
+                    <ul class="menu-products-parent">
+                        <li class="menu-products-child"><a class="menu-products-link" href="">Rau, củ, quả sấy khô</a></li>
+                        <li class="menu-products-child"><a class="menu-products-link" href="">Thịt khô</a></li>
+                        <li class="menu-products-child"><a class="menu-products-link" href="">Các loại hạt</a></li>
+                        <li class="menu-products-child"><a class="menu-products-link" href="">Thủy, hải sản khô</a></li>
+                        <li class="menu-products-child"><a class="menu-products-link" href="">Thực phẩm khác</a></li>
+                    </ul>
+                </li>
+                <li class="header__menu-child"><a class="header__menu-child-link" href="">Tin tức</a></li>
+                <li class="header__menu-child"><a class="header__menu-child-link" href="#contact">Contact</a></li>
+                <li class="header__menu-child"><a class="header__menu-child-link" href="../HTML/pageSitemap.html">Sitemap</a></li>
+            </ul>
+        </div>
+    </header>
+    <img src="../img/gt.png" width="100%" height="400px">
+    <!-- container -->
+    <div class="container">        
+        <div class="grid">
+            <h1 class="page-news-h1">Tin tức</h1>   
+            <div class="grid__row">       
+                <div class="grid__column-9">                                 
+                    <div class="container-content-news cover-card">
+                        <!-- local storage -->
+                        
+                    </div>
+                    <!-- nav -->
+                    <nav  class="swt-page">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Trước</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    
+                            <li class="page-item"><a class="page-link" href="#">Sau</a></li>
+                        </ul>     
+                    </nav>    
+                </div>
+                <div class="grid__column-3">
+                    <div class="noi-bat">
+                        <table>
+                            <thead>
+                                <th>Nổi bật</th>
+                            </thead>
+                            <tbody>
+                               <tr>
+                                   <td><a class="noi-bat-link" href="">Khô gà</a></td>
+                               </tr>
+                               <tr>
+                                    <td><a  class="noi-bat-link"  href="">Khô bò miếng mềm</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a class="noi-bat-link" href="">Ngũ cốc</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a class="noi-bat-link" href="">Hạt macca</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a class="noi-bat-link" href="">Hạt chia</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="noi-bat">
+                        <table>
+                            <th>Zalo Dry foods TrV</th>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Kết bạn zalo <span style="color: var(--main-color)">Dry foods TrV</span> để nhận free mã sale hàng tuần
+                                        <img src="../img/QR.png" alt="">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="noi-bat">
+                        <table>
+                            <th>Youtube Dry foods TrV</th>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>Đăng ký kênh youtube <span style="color: var(--main-color)">Dry foods TrV</span> để xem review sản phẩm chân thực nhất</p>   
+                                        <a href=""><i class="fa-brands fa-youtube" style="margin-top: 10px; color: red; font-size: 1.2rem">Youtube</i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tin nhan ho tro -->
+    <div class="trogiupicon" onclick="trogiup()">
+        <i class="fa-solid fa-envelope"></i>
+    </div>
+    <div id="troGiup" class="tro-giup">
+        <div class="tro-giup-header">
+            <span>Hỗ trợ trực tuyến</span>
+            <button class="tro-giup-btn" onclick="xTroGiup()">X</button>
+        </div>
+        <div class="tro-giup-content">
+            <i class="fa-solid fa-user"></i>
+            <span>Hỗ trợ trực tuyến</span>
+            <p>Chào anh/chị, Dry Foods TrV có thể hỗ trợ được gì cho
+                mình ạ?
+            </p>
+            <input type="text" placeholder="Nhập tin nhắn...">
+            <i class="fa-solid fa-share"></i>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer>
+        <div class="footer-container">
+  
+            <div class="noi-dung-footer about">
+                <h2>Giới thiệu</h2>
+                <p>Chúng tôi hi vọng tất cả người tiêu dùng Việt nam sẽ được sử dụng những dòng thực phẩm khô ngon, bổ dưỡng và an toàn nhất tại cửa hàng cung cấp thực phẩm khô Dry Foods TrV. Với sứ mệnh trở thành một trong những nhà cung cấp thực phẩm khô hàng đầu tại Việt Nam và được ưa chuộng khắp thế giới. Dry Foods TrV cam kết đưa đến người tiêu dùng những loại nông sản tươi ngon nhất của các vùng miền trên toàn quốc được làm khô và đóng gói. Với quy trình lựa chọn và kiểm soát nghiêm ngặt, đảm bảo quy trình làm khô vệ sinh, an toàn Dry Foods TrV đã tạo nên quỹ đầu tư chuyên thu mua và cung cấp phân phối những sản phẩm khô ngon nhất đến tay người tiêu dùng.</p>
+                <ul class="socials-icon">
+                    <li><a href=""><i class="fa-brands fa-facebook-f icon-link"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-youtube icon-link"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-instagram icon-link"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-twitter icon-link"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="noi-dung-footer footer-links">
+                <h2>Đường Dẫn</h2>
+                <ul class="footer-links-parent">
+                    <li><a href="../HTML/Index.html">Trang Chủ</a></li>
+                    <li><a href="../HTML/GioiThieu.html">Giới thiệu</a></li>
+                    <li><a href="../HTML/allProducts.html">Sản phẩm</a></li>
+                    <li><a href="../HTML/News.html">Tin hot</a></li>
+                    <li><a href="#contact">Contact</a></li> 
+                    <li><a href="../HTML/pageSitemap.html">Sitemap</a></li> 
+
+                </ul>
+            </div>
+            
+            <div id="contact" class="noi-dung-footer footer-contact">
+                <h2>Contact</h2>
+                <ul class="info footer-links-parent" >
+                    <li>
+                        <span class="footer-icon"><i class="fa fa-map-marker icon-link"></i></span>
+                        <span class="footer-icon">12 Nguyễn Văn Bảo, Phường 4<br />
+                            Quận Gò vấp, Thành Phố Hồ Chí Minh<br />
+                            Việt Nam</span>
+                    </li>
+                    <li>
+                        <span class="footer-icon"> <i class="fa fa-phone icon-link"></i></span>
+                        <p class="footer-icon"><a href="#">+84 123 456 789</a>
+                            <br />
+                            <a href="#">+84 987 654 321</a></p>
+                    </li>
+                    <li> 
+                        <span class="footer-icon"><i class="fa-solid fa-envelope-circle-check icon-link"></i></span>
+                        <p class="footer-icon"><a href="#">diachiemail@gmail.com</a></p>
+                   </li>
+                    <li>
+                        <form class="form footer-icon">
+                            <input type="email" class=" form__field" placeholder="Đăng Ký Email" />
+                            <button type="button" class=" btn-footer btn--primary  uppercase">Gửi</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </footer>
+    <div class="design-by">Design by Nguyen Anh Vu and Hoang Xuan Truong</div>
+        <!-- Modal layout -->
+        <div class="modal" id="myModal">
+            <div class="modal__overlay"></div>
+            <div class="modal__body">  
+                 <!-- Form sign -->
+                <div class="form-sign">
+                    <div class="form-header">
+                       <h3 class="form-heading">Đăng nhập</h3>
+                       <button class="form-header-switch-btn"><a href="../HTML/pageRegister.html">Đăng ký</a></button>
+                   </div>
+    
+                   <div class="form-body">
+                       <input type="text" class="form-body-input" placeholder="Nhập tài khoản"> <br>
+                       <input type="password" class="form-body-input" placeholder="Nhập mật khẩu">       
+                       <a class="form-body-link" href="">Quên mật khẩu?</a>          
+                   </div>
+                   <div class="form-control">
+                       <button class="btn-back" onclick="backMain()">Trở lại</button>
+                       <button class="btn-register">Đăng nhập</button>
+                       
+                    </div>
+                    <div class="form__socials">
+                        <a href="" class="btn-with-icon-fb">
+                            <i class="fa-brands fa-facebook"></i>
+                            Kết nối Facebook
+                        </a>
+                        <a href="" class="btn-with-icon-gg">
+                            <i class="fa-brands fa-google-plus-g"></i>
+                            Kết nối Google
+                        </a>
+                    </div>
+                </div> 
+            </div>
+            
+        </div> 
+        
+
+
+   <script>
+    const listnews = [
+        {
+            id: 1,
+            name: 'Tổng hợp 15 cách làm các thức ăn khô để được lâu dự trữ cho mùa dịch',
+            img: '../img/news1.jpg',
+            description:'Trong khoảng thời gian mùa dịch gần đây thì chắc hẳn việc đi siêu thị, đi chợ trở nên khó khăn cũng như hạn chế hơn bao giờ hết. Hiểu được điều đó, trong chuyên mục Mẹo vào bếp ngày hôm nay Điện máy XANH muốn mách bạn 15 cách làm thức ăn khô dự trữ trong tủ lạnh để giúp việc ăn uống trở nên dễ dàng và tiện lợi hơn...',
+            content: `<p>
+                    <span style="color: var(--main-color); font-size:1.6rem">1. Các loại hạt rang sấy</span> <br>
+                        Một món ăn vặt vừa để nhâm nhi cho những lúc buồn miệng mà chẳng ngại tăng cân, không chỉ vậy mà còn tốt cho cơ thể thì chắc hẳn không đâu bằng các loạt hạt rang sấy như hạt dẻ cười, hạt điều, hạnh nhân, óc chó,... rồi đó nha!
+                        Để làm món hạt rang sấy cực kì đơn giản mà lại không tốt qua nhiều nguyên liệu khi mà chỉ cần cho hạt lên chảo rang với muối đến khi hạt chuyển sang màu vàng sẫm là xong rồi đấy.
+                        Ngoài ra, bạn cũng có thể biến tấu thêm hương vị cho các hạt rang sấy bằng cách rang với phô mai béo ngậy, tỏi ớt đậm đà, trứng muối mặn mặn cực kì bắt vị, thơm ngon khiến cả nhà bạn ai nấy cũng phát mê đấy nhé!
+                    </p> <br>
+                    <p>
+                        <span style="color: var(--main-color); font-size:1.6rem">2. Đậu rang</span> <br>
+                        Nếu bạn không tìm mua được cái loại hạt thì đừng lo, Điện máy XANH sẽ bày cho bạn một món hạt rang khác cũng ngon không kém mà lại còn dễ mua, chi phí cực kì rẻ đó là đậu phộng rang, đậu nành rang.
+                        Bạn chỉ cần luộc đậu phộng, đậu nành với nước sôi cho chín, để ráo rồi bắc chảo lên bếp rang với muối hoặc rang với tỏi ớt tùy theo sở thích nhé. Để món ăn thêm thơm ngon, nhiều vị mà không bị ngán bạn có thể thay đổi nguyên liệu rang như rang với bơ tỏi ngọt thơm, hay rang với ngũ vị hương lạ miệng nhé!
+                    </p> <br>
+                    <span style="color: var(--main-color); font-size:1.6rem">3. Trái cây sấy</span> <br>
+                    Tủ lạnh nhà bạn có nhiều loại trái cây, nhưng bạn chẳng thể nào ăn hết? Vậy thì cùng xuống bếp với Điện máy XANH ngay để tận dụng các loại quả còn dư là món trái cây sấy giòn tan, dẻo thơm ngay thôi nào!
+
+                    Trái cây rửa sạch, gọt vỏ đem thái thành các lát mỏng ướp với một ít đường rồi cho vào lò nướng hay nồi chiên không dầu hoặc dùng chảo để chiên ở lửa nhỏ đến khi trái cây khô lại là bạn đã hoàn thành xong món ăn rồi đấy.
+
+                    Hoặc nếu bạn không thích trái cây sấy quá giòn thì có thể mang trái cây đã ướp lên khay nướng rồi đem đi phơi nắng khoảng 2 - 3 tiếng. Lúc này trái cây sẽ có độ dẻo dai vừa phải và giữ được màu sắc đẹp mắt hơn.`
+        },
+        {
+            id: 2,
+            name: 'Hướng dẫn cách làm khô gà lá chanh thơm ngon tại nhà',
+            img: '../img/news2.jpg' ,
+            description: 'Với những tín đồ ăn vặt thì món khô gà lá chanh hẳn là rất thân thuộc và không thể thiếu trong các dịp tụ họp. Tuy nhiên, vấn đề an toàn thực phẩm đang khiến nhiều người lo lắng nhưng rất may là cách làm khô gà lá chanh thơm ngon lại cực kỳ dễ thực hiện. Vì thế, bạn hãy thử trổ tài nấu ăn của mình bằng cách thực hiện món này theo hướng dẫn như bài viết dưới đây.',
+            content: `
+            <p>Trước khi thực hiện làm món khô gà xé lá chanh thì bạn cần phải chú ý đeo găng tay và đội mũ để đảm bảo an toàn thực phẩm trong khi thực hiện.</p>
+            <b>Bước 1: Sơ chế thịt gà</b> <br>
+            <p> - Ức gà bạn hãy đem rửa sạch với nước, nếu muốn khử sạch mùi hôi của thịt kỹ hơn thì có thể bóp thêm với nước muối hạt rồi rửa sạch. Cho thịt gà vào nồi cùng với gừng và hành đã được đập dập, đổ nước ngập thịt rồi bạn hãy bắc lên bếp để luộc chín.</p>
+            <p> - Khi nồi luộc đã sôi được khoảng 5 phút thì bạn tắt bếp nhưng không nên lấy thịt ra mà hãy ngâm thịt gà trong nồi như vậy và đậy vung thêm khoảng 10 phút nữa.</p>
+            <b>Bước 2: Xé nhỏ thịt gà</b> <br>
+            <p>Bạn hãy vớt thịt gà ra rổ, để nguội và ráo nước thì mới bắt đầu xé nhỏ thịt gà. Bạn dùng dao cắt ức gà thành nhiều miếng vuông nhỏ hơn, sau đó dùng tay để xé thành sợi nhỏ theo thớ để sau khi xao khô gà sẽ ngon và thành hình sợi bắt mắt hơn.</p>
+            <b>Bước 3: Ướp thịt gà với các gia vị</b> <br>
+            <p> - Thịt gà sau khi xé nhỏ bạn hãy đem ướp cùng với ½ lượng bột ngũ vị hương đã chuẩn bị, bột ớt cay và các gia vị gồm: đường, nước mắm, dầu hào, mì chính. </p>
+            <p> - Bạn hãy lấy đũa trộn đều để thịt gà thấm gia vị rồi  ướp trong khoảng 30 phút. Trong thời gian chờ ướp thịt thì bạn tiến hành sơ chế các nguyên liệu khác.</p>
+            <img src="https://vietgle.vn/wp-content/uploads/2020/07/tam-uop-c%C3%A1c-gia-vi-cho-th%E1%BB%8Bt-ga.jpg" alt="">
+            <b>Bước 4: Sơ chế các nguyên liệu khác</b> <br>
+            <p>- Tỏi khô bóc vỏ, đập dập rồi băm nhuyễn.</p>
+            <p>- Sả rửa sạch, bóc bỏ phần lá già rồi cắt gốc để thái thành các lát xéo mỏng.</p>
+            <p> - Lá chanh rửa sạch rồi để thật ráo nước, sau đó xếp lại bằng nhau rồi thái khúc lớn.</p>
+            <p>- Ớt sừng rửa sạch, bỏ hạt rồi băm nhỏ nhuyễn.</p>
+            `
+        },
+        {
+            id: 3,
+            name: 'Các Loại Thực Phẩm Khô Vệ Sinh Và Ưu Điểm Của Chúng:',
+            img: '../img/news3.jpg',
+            description: 'Hiện nay trên thị trường có rất nhiều loại thực phẩm làm khô được bán. Tuy nhiên, phổ biến nhất vẫn là các loại sau:...',
+            content: `
+            <b>Phân loại:</b> <br>
+
+            <p>Hiện nay trên thị trường có rất nhiều loại thực phẩm làm khô được bán. Tuy nhiên, phổ biến nhất vẫn là các loại sau:</p>
+
+            <p>- Trái cây sấy khô: điển hình nhất là trái cây khô Đà Lạt.</p>
+            <p>- Măng khô.</p>
+            <p>- Hải sản khô: cá, mực, tôm,v.v… khô.</p>
+            <p>- Hạt khô, đậu phộng khô,v.v…</p>
+            <p>- Các loại thịt khô: khô bò, khô lợn, thịt bò hun khói, thịt trâu hun khói Tây Bắc,v.v…</p> <br>
+            <b>Ưu điểm của thực phẩm khô:</b> <br>
+            Không phải tự nhiên mà chúng ta ưa thích dùng một loại thức ăn nào đó. Và thực phẩm hàng khô cũng tương tự, chúng có những ưu điểm vượt trội như sau:
+
+            <p>- Những món ăn dạng khô có thể bảo quản và sử dụng trong thời gian dài, không bị ôi, thiu, lên men hay hôi thối. Thậm chí cách này còn tốt hơn việc giữ lạnh thông thường.</p>
+            <p>- Các loại thực phẩm làm khô có thể sử dụng trong tất cả các mùa.</p>
+            <p>- Mặc dù một số thực phẩm có thể mất đi lượng vitamin, dinh dưỡng khi làm khô nhưng đậu, hạt lại vẫn chứa nhiều chất đạm, chất béo đảm bảo cho người dùng.</p>
+            <p>- Các loại trái cây khô có thể làm bánh ăn ngày Tết, làm quà, ngũ cốc ăn sáng, ăn vặt,v.v…</p>
+            <p>- Các loại hải sản làm khô thì có thể sử dụng quanh năm mà vẫn đảm bảo được chất đạm, muối và thay đổi khẩu vị ăn thông thường. Ngoài ra, khi chiên lên thì các loại cá khô, tôm khô,v.v… có thể tạo thành nhiều món ăn kích thích ăn rất tốt.</p>
+            <p>- Các loại thực phẩm khô vệ sinh thường có mùi vị đặc trưng riêng biệt và hoàn toàn không giống thức ăn tươi của nó. Hương vị này có thể thích hợp với bất kỳ ai, lứa tuổi nào.</p>
+                `
+            
+        },
+        {
+            id: 4,
+            name: 'Chưa tới Tết, măng khô, nấm hương, mộc nhĩ đã tăng giá mạnh',
+            img: '../img/news4.jpg',
+            description: '<b>Còn 1 tháng rưỡi nữa mới đến Tết Nguyên đán 2021 nhưng các mặt hàng thực phẩm khô phục vụ cho ngày Tết như măng khô, nấm hương, miến, mộc nhĩ,... tại các chợ dân sinh và chợ mạng bắt đầu tăng giá mạnh.</b>',
+
+            content: `
+            <p>Sáng đầu tuần, bà Trần Thị Ngà đi chợ đầu mối 365 Hà Đông (Hà Nội) mua thực phẩm khô về bán hàng ăn tại nhà. Bà nhận thấy giá các mặt hàng thực phẩm khô phục vụ ngày Tết như măng khô, nấm hương, miến, mộc nhĩ,... bắt đầu tăng so với tháng trước.</p> <br>
+
+            <p>Nhà bà Ngà làm hàng ăn và bán giò thủ nên thường xuyên mua măng khô, nấm hương, miến, mộc nhĩ... với khối lượng nhiều, lên tới cả chục ký về tích trữ làm hàng bán dần. Tháng trước đi chợ, bà vẫn thấy giá các mặt hàng đồ khô “rất mềm”. Chỉ sau 1 tháng, giá bắt đầu nhỉnh do nhu cầu mua sắm Tết của người dân tăng dần.</p> <br>
+            <p>Tiểu thương chợ Hà Đông này nói thêm, nếu tuần trước, chị vẫn bán hàng theo combo nhỏ cho khách mua lẻ từ 2-5 lạng để gia đình ăn hàng ngày thì giờ chị chỉ đóng gói từ 5 lạng đến 1kg trở lên để bán cho khách mua sắm tích trữ Tết.</p> <br>
+
+            <p>“Để tránh cận Tết khan hàng, cách đây 1 tháng, tôi đã phải thu gom thực phẩm khô từ các tỉnh miền núi phía Bắc về dự trữ. Điều này giúp cho việc bán hàng không bị động vào những ngày giáp Tết, tránh tình trạng bị đẩy giá bán lên cao hoặc khan hàng”.</p><br>
+
+            <p>Chị Thúy cũng tiết lộ, dù hơn 1 tháng nữa mới Tết nhưng mặt hàng này đang đắt khách. Có những hôm chị bán cho khách mua lẻ cũng được 10-30kg măng khô. Ngoài ra, mộc nhĩ, nấm hương và miến thời điểm này cũng bán khá chạy.</p> <br>
+
+            <p>Theo ghi nhận của PV, không chỉ tại chợ dân sinh mà chợ mạng cũng xuất hiện nhiều topic rao bán măng khô, nấm hương, miến, mộc nhĩ có nhãn mác phục vụ Tết Nguyên đán. Giá những thực phẩm khô này cũng tăng so với trước, song vẫn thu hút sự chú ý của người mua. Nhiều chị em công sở tranh thủ mua sắm sớm, nhất là đồ khô, nhằm tránh bị ép giá và đỡ vội ngày Tết.</p>
+            
+            `
+        },
+    ]
+    localStorage.setItem('news', JSON.stringify(listnews))
+    const newsData = JSON.parse(localStorage.getItem('news'))
+    const display = (news) => {
+        const cards =
+            ` <div class="a-news">
+                <a href="../HTML/newsDetail.html" class="a-news-link" onclick="setId(${news.id})">
+                    <div class="news-img">
+                        <img src="${news.img}" alt="">
+                    </div>
+                    <div class="tin-hot-content">
+                        <h3>${news.name}</h3>
+                        <p>${news.description}</p>
+                        
+                    </div>
+                </a>
+            </div>
+            `
+        $('.cover-card').append(cards)
+    }
+    const setId = (id) => {
+        localStorage.setItem('id', id);
+    }
+    newsData.forEach(
+        display
+    );
+</script>    
+</body>
+</html>

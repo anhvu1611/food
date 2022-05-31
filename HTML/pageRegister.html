@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="../CSS/baiTapLon.css">
+    <link rel="stylesheet" href="../Icons/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.min.css">
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            function checkTk()  {
+            let log_name = document.getElementById("account").value
+            let r_name = /^[a-zA-Z0-9]{6,16}$/
+            let errorAcc = document.getElementById("errorAcc")
+            if (log_name.trim()=="") {
+                errorAcc.innerHTML = "Chưa nhập tên tài khoản"
+                return false
+            }
+            
+            if(!r_name.test(log_name)) {
+                errorAcc.innerHTML = "Tên tài khoản là các ký tự chữ, số, ít nhất có 6 ký tự và nhiều nhất 16 ký tự"
+                return false
+            }
+            errorAcc.innerHTML=""
+            return true
+            }
+            $('#account').blur(checkTk)
+
+            function checkSDT() {
+                let sdt = document.getElementById("phoneNumber").value
+                let r_sdt = /((09|03|07|08|05)+([0-9]{8}))/;
+                let errorSDT = document.getElementById("errorNp")
+                if(sdt.trim()=="") {
+                    errorSDT.innerHTML = "Chưa nhập số điện thoại"
+                    return false
+                }
+
+                if(!r_sdt.test(sdt)) { 
+                    errorSDT.innerHTML = "Số điện thoại chưa đúng"
+                    return false
+                }
+                errorSDT.innerHTML =""
+                return true
+            }
+            $('#phoneNumber').blur(checkSDT)
+
+            function checkEmail() {
+                let email = document.getElementById("email").value
+                let r_email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                let errorE = document.getElementById("errorE")
+                if (email.trim()=="") {
+                    errorE.innerHTML = "Chưa nhập địa chỉ email"
+                    return false
+                }
+        
+                if(!r_email.test(email)) {
+                    errorE.innerHTML = "Địa chỉ email sai"
+                    return false
+                }
+                errorE.innerHTML=""
+                return true
+            }
+            $("#email").blur(checkEmail)
+
+            function checkPw() {
+                let pw = document.getElementById("password").value
+                let r_pw = /^[a-zA-Z0-9]{8,}/;
+                let errorPw = document.getElementById("errorPw")
+                if (pw.trim()=="") {
+                    errorPw.innerHTML = "Chưa nhập mật khẩu"
+                    return false
+                }
+                if(!r_pw.test(pw)) {
+                    errorPw.innerHTML = "Mật khẩu phải là các ký tự chữ hoa, chữ thường, số và có ít nhất 8 ký tự"
+                 return false
+                }
+                errorPw.innerHTML=""
+                return true
+            }
+            $("#password").blur(checkPw)
+
+            function check_rePw() {
+                let pw = document.getElementById("password").value
+                let re_pw = document.getElementById("re_password").value
+                let error_rePw = document.getElementById("error_rePw")
+                if (re_pw.trim()=="") {
+                    error_rePw.innerHTML = "Chưa xác nhận mật khẩu"
+                    return false
+                }
+        
+                if(re_pw != pw){
+                    error_rePw.innerHTML = "Mật khẩu nhập lại phải trùng với mật khẩu đã nhập"
+                    return false
+                }
+                error_rePw.innerHTML=""
+                return true
+            }
+            $("#re_password").blur(check_rePw)
+
+            function checkHoten()  {
+                let name = document.getElementById("hoten").value
+                let r_hoten = /^([A-Z]([a-z]{1,}))*(\s[A-Z]([a-z]{0,}))*$/
+                let errorHoten = document.getElementById("errorHoten")
+                if (name.trim()=="") {
+                    errorHoten.innerHTML = "Chưa nhập họ tên"
+                    return false
+                }
+                if(!r_hoten.test(name)) {
+                    errorHoten.innerHTML = "Viết hoa chữ cái đầu tiên"
+                    return false
+                }
+                errorHoten.innerHTML=""
+                return true
+            }
+            $("#hoten").blur(checkHoten)
+
+            function checkNgaySinh(){
+                var day = new Date($("#ngaysinh").val());
+                var today = new Date();
+                today.setDate(today.getDate()-1)
+                if(day >= today){
+                    $("#errorNgaySinh").html("Vui lòng nhập đúng ngày sinh")
+                    return false
+                }
+                $("#errorNgaySinh").html("")
+                return true
+            }
+            $("#ngaysinh").blur(checkNgaySinh)
+            
+            function checkAddress(){
+                let address = document.getElementById("address").value
+                if(address.trim()==""){
+                    $('#errorAddress').html("Vui long nhap dia chi")
+                    return false
+                }
+                $('#errorAddress').html("")
+                return true
+            }
+            $("#address").blur(checkAddress)
+
+            function valid(){
+                if(!checkTk() || !checkEmail()|| !checkSDT() || !checkPw() || !check_rePw() || !checkHoten() || !checkNgaySinh() || !checkAddress()){
+                    return false
+                }
+                else{
+                    alert("Đăng ký tài khoản thành công!")
+                    return true
+                }
+            }
+            $('.btn-register').click(valid)
+        })
+    </script>
+</head>
+<body>
+    
+    <!-- Form register -->
+    <div class="main-register">
+
+        <div class="form-register">    
+            <a href="../HTML/Index.html"><img class="img-register-logo" src="../img/LOGOMAINs.png" alt=""> </a>     
+            <div class="form-header">     
+                <h3 class="form-heading" >Đăng ký</h3>                        
+            </div>
+            <div class="form-body">
+                <span style="color: red;" id="errorAcc"></span>
+                <input type="text" id="account" class="form-body-input" placeholder="Nhập tài khoản">
+                <span style="color: red;" id="errorE"></span>
+                <input type="email" id="email" class="form-body-input" placeholder="Nhập email">
+                <span style="color: red;" id="errorNp"></span>
+                <input type="text" id="phoneNumber" class="form-body-input" placeholder="Nhập số điện thoại">
+                <span style="color: red;" id="errorPw"></span>
+                <input type="password" id="password" class="form-body-input" placeholder="Nhập mật khẩu">
+                <span style="color: red;" id="error_rePw"></span>
+                <input type="password" id="re_password" class="form-body-input" placeholder="Nhập lại mật khẩu"> 
+                </div>
+                <div class="form-header">     
+                    <h3 class="form-heading" >Thông tin cá nhân</h3>                        
+                </div>
+                <div class="form-body">
+                    <label for="ngaysinh" class="form-body-label">Họ và tên:</label>
+                    <span style="color: red;" id="errorHoten"></span>
+                    <input type="text" id="hoten" class="form-body-input" placeholder="Nhập họ và tên">
+                    <label for="ngaysinh" class="form-body-label">Ngày sinh:</label>
+                    <span style="color: red;" id="errorNgaySinh"></span>
+                    <input type="date" id="ngaysinh" class="form-body-input">
+                    <label for="gt" class="form-body-label">Giới tính:  </label>
+                    <input type="radio" name="gt" id="nam"><span class="gt-n">Nam</span>
+                    <input type="radio" name="gt" id="nu"><span class="gt-n">Nữ </span><br> <br>
+                    <label for="" class="form-body-label">Địa chỉ: </label>
+                    <span style="color: red;" id="errorAddress"></span>
+                    <input type="text" id="address" class="form-body-input" placeholder="Nhập địa chỉ">
+                    </div>
+            <div class="form-control">
+                <button class="btn-back" ><a class="link-back" href="../HTML/Index.html">Trang chủ</a></button>
+                <button class="btn-register" onclick="valid()">Đăng ký</button>
+            </div>
+            <div class="form__socials">
+                <a href="" class=" btn-with-icon-fb">
+                    <i class="fa-brands fa-facebook"></i>
+                    Kết nối Facebook
+                </a>
+                <a href="" class="btn-with-icon-gg">
+                    <i class="fa-brands fa-google-plus-g"></i>
+                    Kết nối Google
+                </a>
+            </div>
+        </div>
+                
+    </div>        
+</body>             
+</html>

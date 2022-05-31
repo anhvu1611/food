@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Bootstrap/bootstrap.min.css">
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            function checkName(){
+            let name = $("#hoTen").val
+            let right_name = /^[A-Z][a-zA-Z]*(\s[A-Z][a-zA-Z]*)*$/
+            let error_name = document.getElementById('er_name')
+            if(name.trim() == "" || !right_name.test(name)){
+                er_name.innerHTML = 'Ten chua dung'
+                return false
+            } else {
+                er_name.innerHTML = "(*)"
+                return true
+            }
+            $("#hoTen").blur(checkName)
+
+            }
+        })
+    </script>
+</head>
+<body>
+    <div class="container border">
+        <div class="header">
+            <h1>Padanus Resort</h1>
+            <h2>Dat phong online</h2>
+        </div>
+        <div class="body">
+            <div class="row border ">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-4"><label for="">Ho ten nguoi dat</label></div>
+                        <div class="col-8">
+                            <input type="text" id="hoTen" class="form-control">
+                            <span class="text-danger" id="er_name">(*)</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"><label for="">Ngay den</label></div>
+                        <div class="col-8">
+                            <input type="date" class="form-control">
+                            <span class="text-danger">(*)</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"><label for="">Ngay di</label></div>
+                        <div class="col-8">
+                            <input type="date" class="form-control">
+                            <span class="text-danger">(*)</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"><label for="">So ngay</label></div>
+                        <div class="col-8">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"><label for="">Loai phong</label></div>
+                        <div class="col-8">
+                            <select name="" id="" class="form-control">
+                                <option value="">Luxury</option>
+                                <option value="">Superior</option>
+                                <option value="">View Sea</option>
+                                <option value="">Pool Wiew</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"><label for="">Gia phong</label></div>
+                        <div class="col-8">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"><label for="">Dich vu</label></div>
+                        <div class="col-8">
+                            <input type="checkbox" > <label for="">Giat ui</label>
+                            <input type="checkbox"> <label for="">An sang tai phong</label>
+                            <input type="checkbox"> <label for="">Xe dua ruoc</label> <br>
+                            <button class="btn btn-success" id="dangKy">Dang ky</button>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div class="col-4 border-left d-block">
+                    <img class="mx-auto" src="../images/tuan10.PNG"  alt="">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <h1>Phieu thanh toan</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Ho ten nguoi dat</th>
+                        <th>Ngay di</th>
+                        <th>Ngay den</th>
+                        <th>So ngay</th>
+                        <th>Loai phong</th>
+                        <th>Dich vu</th>    
+                        <th>Tong chi phi</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm</title>
+ 
+    <link rel="stylesheet" href="../CSS/baiTapLon.css">
+    <link rel="stylesheet" href="../Icons/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script type="text/javascript"src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-migrate-min-3.4.0.js"></script>
+    <script src="../js/baiTapLon.js"></script>
+    
+<!-- Tim kiem -->
+    <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myGrid .grid__column-3").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
+</head>
+<body>
+    <div class="main" >
+        <header class="header">
+            <!-- Header navbar -->
+            <nav class="header__navbar">
+                <span>Thời gian nhận đơn ship hàng 7:00 - 22:00</span>
+                <ul class="header__navbar-list">
+                    <li class="header__nav-item"><a class="header__nav-item-link" onclick="signing()">Đăng nhập</a></li> <b>|</b>
+                    <li class="header__nav-item" ><a class="header__nav-item-link"  href="../HTML/pageRegister.html" >Đăng ký</a></li>
+                </ul>
+            </nav>
+            <!-- Header with search -->
+            <div class="grid">
+                <div class="header-with-search">
+                    <div class="grid__row">
+                            <div class="grid__column-3">
+                                <div class="header_logo">
+                                    <a class="header_logo-link" href="../HTML/Index.html">
+                                        <img class="header_logo-img" src="../img/LOGOMAINs.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="grid__column-6">
+                                <div class="header__search">
+                                    <input id="myInput" type="text" placeholder="Tìm kiếm sản phẩm">
+                                    <button class="icon-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </div>
+                            </div>
+                            <div class="grid__column-3">
+                                <div class="header__cart">
+                                    <div class="header__cart-wrap">
+                                        <span>Giỏ hàng</span>
+                                        <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+                                        <div class="header__cart-list header__cart-list--no-cart">
+                                            <img src="../img/empty-cart.png" alt="" class="no_cart_img">
+                                            <span>Chưa có sản phẩm</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Menu -->
+            <div class="header__menu">
+                <ul class="header__menu-parents">
+                    <li class="header__menu-child"><a class="header__menu-child-link" href="../HTML/Index.html">Trang Chủ</a></li>
+                    <li class="header__menu-child"><a class="header__menu-child-link" href="../HTML/GioiThieu.html">Giới Thiệu</a></li>
+                    <li class="header__menu-child">
+                        <a class="header__menu-child-link" href="../HTML/allProducts.html">Sản phẩm <i class="fa-solid fa-caret-down"></i></a>
+                        <ul class="menu-products-parent">
+                            <li class="menu-products-child"><a class="menu-products-link" href="">Rau, củ, quả sấy khô</a></li>
+                            <li class="menu-products-child"><a class="menu-products-link" href="">Thịt khô</a></li>
+                            <li class="menu-products-child"><a class="menu-products-link" href="">Các loại hạt</a></li>
+                            <li class="menu-products-child"><a class="menu-products-link" href="">Thủy, hải sản khô</a></li>
+                            <li class="menu-products-child"><a class="menu-products-link" href="">Thực phẩm khác</a></li>
+                        </ul>
+                    </li>
+                    <li class="header__menu-child"><a class="header__menu-child-link" href="../HTML/News.html">Tin tức</a></li>
+                    <li class="header__menu-child"><a class="header__menu-child-link" href="#contact">Contact</a></li>
+                    <li class="header__menu-child"><a class="header__menu-child-link" href="../HTML/pageSitemap.html">Sitemap</a></li>
+                    
+                </ul>
+            </div>      
+        </header>
+
+        
+        <!-- Container -->
+        <div class="container">
+            <div class="title-container">
+                <div class="title-border">
+                    <h2>DRY FOODS TrV - MANG THỰC PHẨM AN TOÀN, UY TÍN ĐẾN MỌI NƠI</h1>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="title-star">
+                    <h1 style="color: rgb(35, 142, 241)">Tất cả sản phẩm</h2>
+                </div> 
+                <div class="grid__row add-card" id="myGrid">                                       
+                
+                    
+                   
+                </div>
+            <!-- nav -->
+             <nav  class="swt-page">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Trước</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    
+                    <li class="page-item"><a class="page-link" href="#">Sau</a></li>
+                </ul>     
+            </nav>    
+        </div>
+    </div>
+    <!-- Tin nhan ho tro -->
+    <div class="trogiupicon" onclick="trogiup()">
+        <i class="fa-solid fa-envelope"></i>
+    </div>
+    <div id="troGiup" class="tro-giup">
+        <div class="tro-giup-header">
+            <span>Hỗ trợ trực tuyến</span>
+            <button class="tro-giup-btn" onclick="xTroGiup()">X</button>
+        </div>
+        <div class="tro-giup-content">
+            <i class="fa-solid fa-user"></i>
+            <span>Hỗ trợ trực tuyến</span>
+            <p>Chào anh/chị, Dry Foods TrV có thể hỗ trợ được gì cho
+                mình ạ?
+            </p>
+            <input type="text" placeholder="Nhập tin nhắn...">
+            <i class="fa-solid fa-share"></i>
+        </div>
+        
+    </div>
+        <!-- footer -->
+    <footer>
+        <div class="footer-container">
+  
+            <div class="noi-dung-footer about">
+                <h2>Giới thiệu</h2>
+                <p>Chúng tôi hi vọng tất cả người tiêu dùng Việt nam sẽ được sử dụng những dòng thực phẩm khô ngon, bổ dưỡng và an toàn nhất tại cửa hàng cung cấp thực phẩm khô Dry Foods TrV. Với sứ mệnh trở thành một trong những nhà cung cấp thực phẩm khô hàng đầu tại Việt Nam và được ưa chuộng khắp thế giới. Dry Foods TrV cam kết đưa đến người tiêu dùng những loại nông sản tươi ngon nhất của các vùng miền trên toàn quốc được làm khô và đóng gói. Với quy trình lựa chọn và kiểm soát nghiêm ngặt, đảm bảo quy trình làm khô vệ sinh, an toàn Dry Foods TrV đã tạo nên quỹ đầu tư chuyên thu mua và cung cấp phân phối những sản phẩm khô ngon nhất đến tay người tiêu dùng.</p>
+                <ul class="socials-icon">
+                    <li><a href=""><i class="fa-brands fa-facebook-f icon-link"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-youtube icon-link"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-instagram icon-link"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-twitter icon-link"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="noi-dung-footer footer-links">
+                <h2>Đường Dẫn</h2>
+                <ul class="footer-links-parent">
+                    <li><a href="../HTML/Index.html">Trang Chủ</a></li>
+                    <li><a href="../HTML/GioiThieu.html">Giới thiệu</a></li>
+                    <li><a href="../HTML/allProducts.html">Sản phẩm</a></li>
+                    <li><a href="../HTML/News.html">Tin hot</a></li>
+                    <li><a href="#contact">Contact</a></li> 
+                    <li><a href="../HTML/pageSitemap.html">Sitemap</a></li> 
+
+                </ul>
+            </div>
+            
+            <div id="contact" class="noi-dung-footer footer-contact">
+                <h2>Contact</h2>
+                <ul class="info footer-links-parent" >
+                    <li>
+                        <span class="footer-icon"><i class="fa fa-map-marker icon-link"></i></span>
+                        <span class="footer-icon">12 Nguyễn Văn Bảo, Phường 4<br />
+                            Quận Gò vấp, Thành Phố Hồ Chí Minh<br />
+                            Việt Nam</span>
+                    </li>
+                    <li>
+                        <span class="footer-icon"> <i class="fa fa-phone icon-link"></i></span>
+                        <p class="footer-icon"><a href="#">+84 123 456 789</a>
+                            <br />
+                            <a href="#">+84 987 654 321</a></p>
+                    </li>
+                    <li> 
+                        <span class="footer-icon"><i class="fa-solid fa-envelope-circle-check icon-link"></i></span>
+                        <p class="footer-icon"><a href="#">diachiemail@gmail.com</a></p>
+                   </li>
+                    <li>
+                        <form class="form footer-icon">
+                            <input type="email" class=" form__field" placeholder="Đăng Ký Email" />
+                            <button type="button" class=" btn-footer btn--primary  uppercase">Gửi</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </footer>
+    <div class="design-by">Design by Nguyen Anh Vu and Hoang Xuan Truong</div>
+
+    <!-- Modal layout -->
+    <div class="modal" id="myModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">  
+             <!-- Form sign -->
+            <div class="form-sign">
+                <div class="form-header">
+                   <h3 class="form-heading">Đăng nhập</h3>
+                   <button class="form-header-switch-btn"><a href="../HTML/pageRegister.html">Đăng ký</a></button>
+               </div>
+
+               <div class="form-body">
+                   <input type="text" class="form-body-input" placeholder="Nhập tài khoản"> <br>
+                   <input type="password" class="form-body-input" placeholder="Nhập mật khẩu">       
+                   <a class="form-body-link" href="">Quên mật khẩu?</a>          
+               </div>
+               <div class="form-control">
+                   <button class="btn-back" onclick="backMain()">Trở lại</button>
+                   <button class="btn-register">Đăng nhập</button>
+                   
+                </div>
+                <div class="form__socials">
+                    <a href="" class="btn-with-icon-fb">
+                        <i class="fa-brands fa-facebook "></i>
+                        Kết nối Facebook
+                    </a>
+                    <a href="" class="btn-with-icon-gg">
+                        <i class="fa-brands fa-google-plus-g"></i>
+                        Kết nối Google
+                    </a>
+                </div>
+            </div> 
+        </div>
+    </div> 
+
+
+    <!-- local storage -->
+    <script src="../js/localStorage.js"></script>
+</body>
+</html>

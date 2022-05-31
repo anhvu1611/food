@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            function kiemtraname(){
+                let name = $("#name").val()
+                let regexname = 
+
+                if (name.trim()== ""){
+                    $(".errorName").html("can nhap")
+                    return false
+                }
+                if(!regexname.test(name)){
+                    $(".errorName").html("can co chu cai in hoa")
+                    return false
+                }
+                $(".errorName").html("(*)")
+                return true
+            }
+            $("#name").blur(kiemtraname)
+
+            function kiemtrangayden(){
+                var day = new Date($("#datecome").val());
+                var today = new Date();
+                today.setDate(today.getDate()+1)
+
+                if(day < today){
+                    $(".errorDen").html("phai lon hon ngay hien tai")
+                    return false
+                }
+                $(".errorDen").html("(*)")
+                return true
+            }
+            $("#datecome").blur(kiemtrangayden)
+
+            function kiemtrangaydi(){
+                var dayleave = new Date($("#dateleave").val());
+                var daycome = new Date($("#datecome").val());
+                if (dayleave < daycome){
+                    $(".errorDi").html("ngay di phai lon hon ngay den")
+                    return false
+                }
+                $(".errorDi").html("(*)")
+                return true
+            }
+            $("#dateleave").blur(kiemtrangaydi)
+
+            $("#dateleave").change(function(){
+
+                let ngaydi = new Date($("#dateleave").val())
+                let ngayden = new Date($("#datecome").val())
+                let songay = (ngaydi.getTime() - ngayden.getTime()) / (24 * 60 * 60 * 1000)
+                $("#numberday").val(songay)
+            })
+                
+             
+            
+            $("#type").change(function(){
+                let type = $("#type").val()
+                let price = type == "Luxury" ? 1200000 :(type == "Superior" ?1500000: type == "View Sea"?1900000: 1700000)
+                $("#price").val(price)
+            })
+
+            $('#register').click(() => {
+                var dichvu = []
+                if($('#Giatui').is(':checked')) {
+                    dichvu.push('Giat ui')
+                }
+                if($('#Xe').is(':checked')) {
+                    dichvu.push('Xe dua ruoc')
+                }
+                if($('#ansang').is(':checked')) {
+                    dichvu.push('An sang tai cho')
+                }
+                const phidichvu = dichvu.length * 200000
+                const name = $('#name').val()
+                const daycome = getDateCome()
+                const dayleave = getDateLeave()
+                const songay = $('#numberday').val()
+                const type = $('#type option:selected').text()
+                const price = $('#price').val()
+                const chiphi = price*songay + phidichvu
+                const data = 
+                `
+                    <tr>
+                        <td>${name}</td>
+                        <td>${daycome}</td>
+                        <td>${dayleave}</td>
+                        <td>${songay}</td>
+                        <td>${type}</td>
+                        <td>${dichvu.join(', ')}</td>
+                        <td>${chiphi}</td>
+                    </tr>
+                `
+                $('#tbody').append(data)
+                return true
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header border">
+            <h1>Padanus Resort</h1>
+            <h1>Dat phong online</h1>
+        </div>
+        <div class="content row m-0">
+            <div class="col-md-9 p-0">
+                <form action="" class="form-group border p-3 mb-0">
+                    <div class="row form-group">
+                        <div class="col-sm-3">
+                            <label for="">Ho ten nguoi dat</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" id="name" class="form-control">
+                            <span class="errorName text-danger">(*)</span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-3">
+                            <label for="">Ngay den</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="date" id="datecome" class="form-control">
+                            <span class="errorDen text-danger">(*)</span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-3">
+                            <label for="">Ngay di</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="date" id="dateleave" class="form-control">
+                            <span class="errorDi text-danger">(*)</span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-3">
+                            <label for="">So ngay</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" id="numberday" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-3">
+                            <label for="">Loai phong</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="form-group">
+                                <select name="" id="type" class="form-control">
+                                    <option value="Luxury">Luxury</option>
+                                    <option value="Superior">Superior</option>
+                                    <option value="View Sea">View Sea</option>
+                                    <option value="Pool View">Pool View</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-3">
+                            <label for="">Gia phong</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" readonly id="price" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-3">
+                            <label for="">Dich vu</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" id="Giatui" class="form-check-input">
+                                <label for="" class="form-check-label">Giat ui</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" id="Xe" class="form-check-input">
+                                <label for="" class="form-check-label">Xe dua ruoc</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" id="ansang" class="form-check-input">
+                                <label for="" class="form-check-label">An sang tai phong</label>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-success" type="button" id="register">Dang ky</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3 d-flex align-items-center border">
+                <img src="../img/padanus.jpg" alt="" width="100%">
+            </div>
+        </div>
+        <div class="footer border">
+            <h3>Phieu thanh toan</h3>
+            <table class="table">
+                <thead>
+                    <th>Ho ten nguoi dat</th>
+                    <th>Ngay di</th>
+                    <th>Ngay den</th>
+                    <th>So ngay</th>
+                    <th>Loai phong</th>
+                    <th>Dich vu</th>
+                    <th>Tong chi phi</th>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

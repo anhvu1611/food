@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LO4</title>
+    <link rel="stylesheet" href="../Bootstrap/bootstrap.min.css">
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            function checkName(){
+                let name = $('#name').val()
+                let r_name = /^([A-Z]([a-z]{1,}))*(\s[A-Z]([a-z]{0,}))*$/
+                let e_name = $('#e_name').val()
+                if(name.trim()==""){
+                    $('#e_name').html('Ho ten khong duoc de trong')
+                    return false
+                }
+                if(!r_name.test(name)){
+                    $('#e_name').html('Phai bat dau bang ki tu hoa')
+                    return false
+                }
+                $('#e_name').html('(*)')
+                return true
+            }
+            $('#name').blur(checkName)
+
+            function checkDayCome(){
+                let e_dayCome = $('#e_dayCome').val()
+                let dateCome = new Date($('#ngayDen').val())
+                let today = new Date().getDate
+                if(dateCome > today){
+                    $('#e_dayCome').html('Ngay den phai be hon ngay hien tai')
+                    return false
+                }
+                $('#e_dayCome').html('(*)')
+                return true
+            }
+            $('#ngayDen').blur(checkDayCome)
+
+            function checkDayGo(){
+                let dayGo = new Date($('#dayGo').val())
+                let e_dayGo = $('#e_dayGo').val()
+                let dateCome = new Date($('#ngayDen').val())
+                if(dayGo <= dateCome){
+                    $('#e_dayGo').html('Ngay di phai lon hon ngay den')
+                    return false
+                }
+                $('#e_dayGo').html('(*)')
+                return true
+            }
+            $('#dayGo').blur(checkDayGo)
+            
+            $('#dayGo').change(function(){
+                let dayGo = new Date($('#dayGo').val())
+                let dateCome = new Date($('#ngayDen').val())
+                let songay = (dayGo.getTime() - dateCome.getTime()) / (24 * 60 * 60 * 1000)
+                $('#soNgay').val(songay)
+            })
+            $('#loaiPhong').change(function(){
+                let loaiPhong = $('#loaiPhong').val()
+                let giaPhong = $('#giaPhong').val()
+                if(loaiPhong=='Luxury'){
+                    $('#giaPhong').val(120000)
+                }
+                if(loaiPhong=='Superior'){
+                    $('#giaPhong').val(150000)
+                }
+                if(loaiPhong=='View Sea'){
+                    $('#giaPhong').val(190000)
+                }
+                if(loaiPhong=='Pool View'){
+                    $('#giaPhong').val(170000)
+                }
+            })
+
+            function checkDichVu (){
+                if(!checkName() || !checkDayCome() || !checkDayGo() ){
+                    return false
+                }else {
+                    var dichVu =[]
+                    if($('#giatUi').is(':checked')){
+                        dichVu.push('Giat ui')
+                    }
+                    if($('#anSang').is(':checked')){
+                        dichVu.push('An sang tai phong')
+                    }
+                    if($('#xeDuaRuoc').is(':checked')){
+                        dichVu.push('Xe dua ruoc')
+                    }
+
+                    let name = $('#name').val()
+                    let dateCome =$('#ngayDen').val()
+                    let dayGo =$('#dayGo').val()
+                    let soNgay = $('#soNgay').val()
+                    let loaiPhong = $('#loaiPhong').val()
+                    let giaPhong = $('#giaPhong').val()
+                    let tongChiPhi = giaPhong*soNgay + dichVu.length*20000
+                    const card = `
+                        <tr>
+                            <td>${name}</td>
+                            <td>${dateCome}</td>
+                            <td>${dayGo}</td>
+                            <td>${soNgay}</td>
+                            <td>${loaiPhong}</td>
+                            <td>${dichVu}</td>
+                            <td>${tongChiPhi}</td>
+                        </tr>
+                    
+                    `
+                    $('tbody').append(card)
+                    return true
+                }
+                
+            }
+            $('#dangKy').click(checkDichVu)
+        })
+    </script>
+</head>
+<body>
+    <div class="container border">
+        <div class="header">
+            <h1>Padanus Resort</h1>
+            <h3>Dat phong online</h3>
+        </div>
+        <div class="body border">
+            <div class="row">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="">Ho ten nguoi dat</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control" id="name">
+                            <span class="text-danger" id="e_name">(*)</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="">Ngay den</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="date" class="form-control" id="ngayDen">
+                            <span class="text-danger" id="e_dayCome">(*)</span>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="">Ngay di</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="date" class="form-control" id="dayGo">
+                            <span class="text-danger" id="e_dayGo">(*)</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="">So ngay</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control" id="soNgay">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="">Loai phong</label>
+                        </div>
+                        <div class="col-8">
+                            <select name="" id="loaiPhong" class="form-control">
+                                <option value="Luxury">Luxury</option>
+                                <option value="Superior">Superior</option>  
+                                <option value="View Sea">View Sea</option>
+                                <option value="Pool view">Pool view</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="">Gia phong</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control" id="giaPhong">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="">Dich vu</label>
+                        </div>
+                        <div class="col-8">
+                            <label for="">Giat ui</label>
+                            <input type="checkbox" id="giatUi">
+                            <label for="">Xe dua ruoc</label>
+                            <input type="checkbox" id="xeDuaRuoc">
+                            <label for="">An sang tai phong</label>
+                            <input type="checkbox" id="anSang"> <br>
+                            <button class="btn-success" id="dangKy">Dang ky</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <img src="../img/dauXanh.jpg" alt="">
+                </div>
+            </div>
+            
+        </div>
+        <div class="footer border">
+            <h1>Phieu thanh toan</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Ho ten nguoi dat</th>
+                        <th>Ngay di</th>
+                        <th>Ngay den</th>
+                        <th>So ngay</th>
+                        <th>Loai phong</th>
+                        <th>Dich vu</th>
+                        <th>Tong chi phi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

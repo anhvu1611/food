@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title> 
+    <link rel="stylesheet" href="../CSS/baiTapLon.css">
+    <link rel="stylesheet" href="../Icons/fontawesome-free-6.1.1-web/fontawesome-free-6.1.1-web/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/slick.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script type="text/javascript"src="../js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-migrate-min-3.4.0.js"></script>
+    <script type="text/javascript" src="../js/slick.min.js"></script>
+    <script src="../js/baiTapLon.js"></script>
+    
+<!-- Tim kiem -->
+    <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myGrid .grid__column-3").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
+</head>
+<body>
+    <div class="main" >
+        <header class="header">
+            <!-- Header navbar -->
+            <nav class="header__navbar">
+                <span>Thời gian nhận đơn ship hàng 7:00 - 22:00</span>
+                <ul class="header__navbar-list">
+                    <li class="header__nav-item"><a class="header__nav-item-link" onclick="signing()">Đăng nhập</a></li> <b>|</b>
+                    <li class="header__nav-item" ><a class="header__nav-item-link"  href="../HTML/pageRegister.html" >Đăng ký</a></li>
+                </ul>
+            </nav>
+            <!-- Header with search -->
+            <div class="grid">
+                <div class="header-with-search">
+                    <div class="grid__row">
+                            <div class="grid__column-3">
+                                <div class="header_logo">
+                                    <a class="header_logo-link" href="../HTML/Index.html">
+                                        <img class="header_logo-img" src="../img/LOGOMAINs.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="grid__column-6">
+                                <div class="header__search">
+                                    <input id="myInput" type="text" placeholder="Tìm kiếm sản phẩm">
+                                    <button class="icon-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </div>
+                            </div>
+                            <div class="grid__column-3">
+                                <div class="header__cart">
+                                    <div class="header__cart-wrap">
+                                        <span>Giỏ hàng</span>
+                                        <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+                                        <div class="header__cart-list header__cart-list--no-cart">
+                                            <img src="../img/empty-cart.png" alt="" class="no_cart_img">
+                                            <span>Chưa có sản phẩm</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Menu -->
+            <div class="header__menu">
+                <ul class="header__menu-parents">
+                    <li class="header__menu-child"><a class="header__menu-child-link" href="../HTML/Index.html">Trang Chủ</a></li>
+                    <li class="header__menu-child"><a class="header__menu-child-link" href="../HTML/GioiThieu.html">Giới Thiệu</a></li>
+                    <li class="header__menu-child">
+                        <a class="header__menu-child-link" href="../HTML/allProducts.html">Sản phẩm <i class="fa-solid fa-caret-down"></i></a>
+                        <ul class="menu-products-parent">
+                            <li class="menu-products-child"><a class="menu-products-link" href="">Rau, củ, quả sấy khô</a></li>
+                            <li class="menu-products-child"><a class="menu-products-link" href="">Thịt khô</a></li>
+                            <li class="menu-products-child"><a class="menu-products-link" href="">Các loại hạt</a></li>
+                            <li class="menu-products-child"><a class="menu-products-link" href="">Thủy, hải sản khô</a></li>
+                            <li class="menu-products-child"><a class="menu-products-link" href="">Thực phẩm khác</a></li>
+                        </ul>
+                    </li>
+                    <li class="header__menu-child"><a class="header__menu-child-link" href="../HTML/News.html">Tin tức</a></li>
+                    <li class="header__menu-child"><a class="header__menu-child-link" href="#contact">Contact</a></li>
+                    <li class="header__menu-child"><a class="header__menu-child-link" href="../HTML/pageSitemap.html">Sitemap</a></li>
+                    
+                </ul>
+            </div>    
+        </header>
+
+        <!-- slider -->
+        <div class="khoi-slide">
+            <div>
+                <img class="khoi-slide-img" src="../img/slider1.jpg" alt="">
+            </div>
+            <div>
+                <img class="khoi-slide-img" src="../img/slider2.jpg" alt="">
+            </div>
+        </div>
+        
+        <!-- Container -->
+        <div class="container">
+            <div class="title-container">
+                <div class="title-border">
+                    <h2>DRY FOODS TrV - MANG THỰC PHẨM AN TOÀN, UY TÍN ĐẾN MỌI NƠI</h1>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="title-star">
+                    <h1><i class="fa-solid fa-star"></i>Sản phẩm nổi bật</h1>
+                </div> 
+                <div class="grid__row add-card-products-featured" id="myGrid">                                       
+                    
+                </div>
+                <!-- Cac loai hat -->
+                <div class="title-star">
+                    <h1><i class="fa-solid fa-star"></i>Các loại hạt</h1>
+                </div> 
+                <div class="grid__row add-card-products-nuts" id="myGrid">                                        
+                    
+                </div>
+                <!-- Thit kho -->
+                <div class="title-star">
+                    <h1><i class="fa-solid fa-star"></i>Thịt khô</h1>
+                </div> 
+                <div class="grid__row add-card-products-meat" id="myGrid">                                       
+                      
+                </div>
+                <!-- Thuy hai san kho -->
+                <div class="title-star">
+                    <h1><i class="fa-solid fa-star"></i>Thủy, hải sản khô</h1>
+                </div> 
+                <div class="grid__row add-card-products-sea-food" id="myGrid">                                       
+                    
+                </div>
+                <!-- San pham khac -->
+                <div class="title-star">
+                    <h1><i class="fa-solid fa-star"></i>Sản phẩm khác</h1>
+                </div> 
+                <div class="grid__row add-card-products-Other" id="myGrid">  
+                    
+                    
+                </div>
+                <!-- Tin hot -->
+                <div class="title-star-last">
+                    <h1 class="title-star-last-h1">
+                        <a href="">Tin khuyến mãi</a>
+                    </h1>
+                </div>
+                <div class="grid__row">
+                    <div class="grid__column-3">
+                        <a class="tin-hot-main"  href="">
+                            <div class="container__product-item">
+                                <div class="container__product-item-img" style="background-image: url(../img/sale.webp);">
+                                    <h4 class="container__product-item-name">Big sale 40% </h4>
+                                    Giảm sốc 40% khi tham gia mua hàng trong ngày lễ 30/4 - 1/5
+                            
+                                </div>
+                            </div>
+                        </a>       
+                    </div>
+                    <div class="grid__column-3">
+                        <a class="tin-hot-main"  href="">
+                            <div class="container__product-item">
+                                <div class="container__product-item-img" style="background-image: url(../img/ngayram.jpg );">
+                                    <h4 class="container__product-item-name">Mua sắm ngày rằm</h4>
+                                    Ngày rằm đến rồi, mua ngay vài món về nhâm nhi cùng bạn bè nào!
+                            
+                                </div>
+                            </div>
+                        </a>      
+                    </div>
+                    
+                    <div class="grid__column-3">
+                        <a class="tin-hot-main" href="">
+                            <div class="container__product-item">
+                                <div class="container__product-item-img" style="background-image: url(../img/frs.png);">
+                                    <h4 class="container__product-item-name">Freeship </h4>
+                                    Freeship khi mua hàng ngày 28/4 - 3/5
+                            
+                                </div>
+                            </div>
+                        </a>      
+                    </div>
+                    <div class="grid__column-3">
+                        <a class="tin-hot-main" href="">
+                            <div class="container__product-item">
+                                <div class="container__product-item-img" style="background-image: url(../img/sale20.jpg);">
+                                    <h4 class="container__product-item-name">Sale off 20% </h4>
+                                    Chào mừng năm mới! Dry Foods TrV giammr giá 20% các loại sản phẩm!
+                            
+                                </div>
+                            </div>
+                        </a>      
+                    </div>
+                </div>
+            </div>
+            <!-- nav -->
+            <!-- <nav  class="swt-page">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Trước</a></li>
+                    <li style="background-color:rgb(248, 241, 241)" class="page-item"><a class="page-link" href="#">1</a></li>
+                    
+                    <li class="page-item"><a class="page-link" href="#">Sau</a></li>
+                </ul>     
+            </nav>  -->    
+        </div>
+    </div>
+    <!-- Tin nhan ho tro -->
+    <div class="trogiupicon" onclick="trogiup()">
+        <i class="fa-solid fa-envelope"></i>
+    </div>
+    <div id="troGiup" class="tro-giup">
+        <div class="tro-giup-header">
+            <span>Hỗ trợ trực tuyến</span>
+            <button class="tro-giup-btn" onclick="xTroGiup()">X</button>
+        </div>
+        <div class="tro-giup-content">
+            <i class="fa-solid fa-user"></i>
+            <span>Hỗ trợ trực tuyến</span>
+            <p>Chào anh/chị, Dry Foods TrV có thể hỗ trợ được gì cho
+                mình ạ?
+            </p>
+            <input type="text" placeholder="Nhập tin nhắn...">
+            <i class="fa-solid fa-share"></i>
+        </div>
+    </div>
+        <!-- footer -->
+        <footer>
+            <div class="footer-container">
+      
+                <div class="noi-dung-footer about">
+                    <h2>Giới thiệu</h2>
+                    <p>Chúng tôi hi vọng tất cả người tiêu dùng Việt nam sẽ được sử dụng những dòng thực phẩm khô ngon, bổ dưỡng và an toàn nhất tại cửa hàng cung cấp thực phẩm khô Dry Foods TrV. Với sứ mệnh trở thành một trong những nhà cung cấp thực phẩm khô hàng đầu tại Việt Nam và được ưa chuộng khắp thế giới. Dry Foods TrV cam kết đưa đến người tiêu dùng những loại nông sản tươi ngon nhất của các vùng miền trên toàn quốc được làm khô và đóng gói. Với quy trình lựa chọn và kiểm soát nghiêm ngặt, đảm bảo quy trình làm khô vệ sinh, an toàn Dry Foods TrV đã tạo nên quỹ đầu tư chuyên thu mua và cung cấp phân phối những sản phẩm khô ngon nhất đến tay người tiêu dùng.</p>
+                    <ul class="socials-icon">
+                        <li><a href=""><i class="fa-brands fa-facebook-f icon-link"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-youtube icon-link"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-instagram icon-link"></i></a></li>
+                        <li><a href=""><i class="fa-brands fa-twitter icon-link"></i></a></li>
+                    </ul>
+                </div>
+    
+                <div class="noi-dung-footer footer-links">
+                    <h2>Đường Dẫn</h2>
+                    <ul class="footer-links-parent">
+                        <li><a href="../HTML/Index.html">Trang Chủ</a></li>
+                        <li><a href="../HTML/GioiThieu.html">Giới thiệu</a></li>
+                        <li><a href="../HTML/allProducts.html">Sản phẩm</a></li>
+                        <li><a href="../HTML/News.html">Tin hot</a></li>
+                        <li><a href="#contact">Contact</a></li> 
+                        <li><a href="../HTML/pageSitemap.html">Sitemap</a></li> 
+    
+                    </ul>
+                </div>
+                
+                <div id="contact" class="noi-dung-footer footer-contact">
+                    <h2>Contact</h2>
+                    <ul class="info footer-links-parent" >
+                        <li>
+                            <span class="footer-icon"><i class="fa fa-map-marker icon-link"></i></span>
+                            <span class="footer-icon">12 Nguyễn Văn Bảo, Phường 4<br />
+                                Quận Gò vấp, Thành Phố Hồ Chí Minh<br />
+                                Việt Nam</span>
+                        </li>
+                        <li>
+                            <span class="footer-icon"> <i class="fa fa-phone icon-link"></i></span>
+                            <p class="footer-icon"><a href="#">+84 123 456 789</a>
+                                <br />
+                                <a href="#">+84 987 654 321</a></p>
+                        </li>
+                        <li> 
+                            <span class="footer-icon"><i class="fa-solid fa-envelope-circle-check icon-link"></i></span>
+                            <p class="footer-icon"><a href="#">diachiemail@gmail.com</a></p>
+                       </li>
+                        <li>
+                            <form class="form footer-icon">
+                                <input type="email" class=" form__field" placeholder="Đăng Ký Email" />
+                                <button type="button" class=" btn-footer btn--primary  uppercase">Gửi</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+        </footer>
+        <div class="design-by">Design by Nguyen Anh Vu and Hoang Xuan Truong</div>
+
+    <!-- Modal layout -->
+    <div class="modal" id="myModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">  
+             <!-- Form sign -->
+            <div class="form-sign">
+                <div class="form-header">
+                   <h3 class="form-heading">Đăng nhập</h3>
+                   <button class="form-header-switch-btn"><a href="../HTML/pageRegister.html">Đăng ký</a></button>
+               </div>
+
+               <div class="form-body">
+                   <input type="text" class="form-body-input" placeholder="Nhập tài khoản"> <br>
+                   <input type="password" class="form-body-input" placeholder="Nhập mật khẩu">       
+                   <a class="form-body-link" href="">Quên mật khẩu?</a>          
+               </div>
+               <div class="form-control">
+                   <button class="btn-back" onclick="backMain()">Trở lại</button>
+                   <button class="btn-register">Đăng nhập</button>
+                   
+                </div>
+                <div class="form__socials">
+                    <a href="" class="btn-with-icon-fb">
+                        <i class="fa-brands fa-facebook"></i>
+                        Kết nối Facebook
+                    </a>
+                    <a href="" class="btn-with-icon-gg">
+                        <i class="fa-brands fa-google-plus-g"></i>
+                        Kết nối Google
+                    </a>
+                </div>
+            </div> 
+        </div>
+    </div> 
+
+
+    <script>
+        const setId = (id) => {
+            localStorage.setItem('id', id);
+        }
+        const listProductsFeatured = [
+            {
+                id: 1,
+                name: "Khô bò miếng mềm",
+                unitprice: '120.000đ',
+                img: '../img/khoBoMiengMem.webp',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <h2>Thông tin dinh dưỡng</h2><br>
+                    <p style="font-size: 1.2em;">-  Trong thịt bò khô có chứa rất nhiều chất dinh dưỡng trong đó chủ yếu là protein, có khoảng 27% protein trong thịt nạc bò. <br>
+                        -  Protein rất tốt cho cơ thể, nó chứa 8 loại Axit amin thiết yếu giúp cung cấp dinh dưỡng, tác động cho sự tăng trưởng và duy trì cơ thể của chúng ta. <br>
+                        -  Thịt bò còn được các vận động viên dùng trong khẩu phần ăn hàng ngày để có đủ chất dinh dưỡng cho thi đấu hoặc giúp các mô cơ bắp phát triển, tái tạo. <br>
+                        -  Trong thịt bò có nhiều chất béo, có thể dùng thịt bò để cung cấp và tích trữ năng lượng cho cơ thể rất tốt. <br>
+                        -  Vitamin khoáng chất cũng có rất nhiều trong thịt bò, có những chất chủ yếu như: Vitamin B12, Kẽm, Sắt, Selenium, Niacin, Vitamin B6… <br>
+                        -  Những chất này giúp cơ thể duy trì và tăng trưởng cho cơ thể, Vitamin B12 cung cấp chất dinh dưỡng quan trọng cho chức năng não bộ cũng như tái tạo hệ thần kinh. 
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Bảo quản nơi khô ráo thoáng mát tránh nguồn nhiệt cao và nơi ẩm ướt.</p>
+
+                    `
+            },
+            {
+                id: 2,
+                name: "Hạt macca sấy",
+                unitprice: '110.000đ',
+                img: '../img/hatMaccaSay.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <h2>Thông tin dinh dưỡng</h2><br>
+                    <p style="font-size: 1.2em;">Hạt mắc ca (macadamia) được coi là loại hạt ngon nhất, nhiều công chăm sóc nhất và là loại đắt nhất thế giới. Vì vậy chúng được gọi là nữ hoàng của các loại hạt. Hạt mắc ca có kích cỡ từ 2 — 3 centimeter, hình tròn, màu crème, rất thơm, mềm như bơ và tan mịn trên đầu lưỡi khi cho vào miệng. Để được như vậy hạt mắc ca cần phải có hàm lượng chất béo rất cao.Vì thành phần dinh dưỡng cao bao  gồm chất béo 80% , chất đạm 9,2 % , đường 7,9 % , chất sơ 6,4%, Vitamin B, Calcium, sắt và phosphor, nên hạt macadamia được đánh giá rất cao và được xem là rất tốt cho sức khoẻ. Khi ăn vào giảm được Cholesteron, có tác dụng phòng trị xơ cứu động mạch. Hàm lượng Protein trong nhân có tới 9,2%, gồm 20 loại Axit Amin trong đó có 8 loại Axit Amin cần thiết cho cơ thể con người.
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Để hạt mắc ca ở nơi thoáng mát khô ráo, không để hở không khí, khi mở túi nên đóng mép kĩ sau mỗi lần sử dụng, bảo quản tốt nhất ở ngăn mát của tủ lạnh.</p>
+
+                    `
+            },
+            {
+                id: 4,
+                name: "Khô gà",
+                unitprice: '129.000đ',
+                img: '../img/khoGa.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <p style="font-size: 1.2em;">-  Tên sản phẩm: Khô gà cay lá chanh, 125g, bịch, mẫu kraft 1 mặt trong. <br>
+                        -  Thương hiệu: L'angfarm. <br>
+                        -  Thịt bò còn được các vận động viên dùng trong khẩu phần ăn hàng ngày để có đủ chất dinh dưỡng cho thi đấu hoặc giúp các mô cơ bắp phát triển, tái tạo. <br>
+                        -  Khối lượng tịnh / Thể tích thực: 125g. <br>
+                        -  Hạn sử dụng: 9 tháng <br>
+                        -  Thành phần: Thịt ức gà 96%, lá chanh 1%, ớt tươi 1%, nước mắm, đường, muối i-ốt, chất điều vị (621- 627 - 631). 
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp.</p>
+
+                    `
+            },
+            {
+                id: 5,
+                name: "Ngũ cốc dinh dưỡng",
+                unitprice: '98.000đ',
+                img: '../img/nguCoc.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <p style="font-size: 1.2em;">-  Ngũ cốc dinh dưỡng VinaCafé B'fast là nguồn bổ sung canxi cho gia đình mỗi ngày, ngoài ra sản phẩm còn cung cấp thêm chất đạm, chất xơ, phốt phát, carbohydrate,.. có thể dùng thay thế bữa ăn nhẹ cho cả nhà. Ngũ cốc dinh dưỡng VinaCafé B'fast Kachi bịch 500g có 20 gói nhỏ tiện dùng, dễ pha. <br>
+                        -  Khối lượng: 25g x 20 gói. <br>
+                        -  Thành phần: Đường, vảy ngũ cốc 33% (bột mì, glucose syrup, bột đậu nành, chiết xuất mầm lúa mạch, đường, tinh bột bắp, dextrose, bột nếp, bột gạo, fructo syrup, tinh bột biến tính (1414), muối, hương vani tổng hợp), bột kem thực vật (glucose syrup, dầu thực vật, chiết xuất mầm lúa mạch, protein sữa, chất ổn định (340ii, 452i), chất nhũ hóa, chất chống đông). <br>
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp.</p>
+
+                    `
+            },
+        ]
+ 
+        localStorage.setItem('productsFeatured', JSON.stringify(listProductsFeatured));
+        const productsFeatured = JSON.parse(localStorage.getItem('productsFeatured'))
+        const displayFeatured = (productsFeatured) => {
+            const card = 
+                ` <div class="grid__column-3">
+                    <a href="../HTML/productDetail.html" class="container__product-link" onclick="setId(${productsFeatured.id})">
+                        <div class="container__product-item">
+                            <div class="container__product-item-img" style="background-image: url(${productsFeatured.img})">
+                                <h4 class="container__product-item-name">${productsFeatured.name}</h4>
+                                <span class="container__product-item-price">Price: ${productsFeatured.unitprice}</span> <br>
+                                <button class="container__product-btn-primary">Mua ngay</button>
+                            </div>
+                         </div>
+                    </a>       
+                </div>
+                `
+                $('.add-card-products-featured').append(card)
+        }
+        productsFeatured.forEach(el => {
+            displayFeatured(el)
+        })
+
+        // list Cac loai hat
+        const listProductsNuts = [
+            {
+                id: 2,
+                name: "Hạt macca sấy",
+                unitprice: '110.000đ',
+                img: '../img/hatMaccaSay.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <h2>Thông tin dinh dưỡng</h2><br>
+                    <p style="font-size: 1.2em;">Hạt mắc ca (macadamia) được coi là loại hạt ngon nhất, nhiều công chăm sóc nhất và là loại đắt nhất thế giới. Vì vậy chúng được gọi là nữ hoàng của các loại hạt. Hạt mắc ca có kích cỡ từ 2 — 3 centimeter, hình tròn, màu crème, rất thơm, mềm như bơ và tan mịn trên đầu lưỡi khi cho vào miệng. Để được như vậy hạt mắc ca cần phải có hàm lượng chất béo rất cao.Vì thành phần dinh dưỡng cao bao  gồm chất béo 80% , chất đạm 9,2 % , đường 7,9 % , chất sơ 6,4%, Vitamin B, Calcium, sắt và phosphor, nên hạt macadamia được đánh giá rất cao và được xem là rất tốt cho sức khoẻ. Khi ăn vào giảm được Cholesteron, có tác dụng phòng trị xơ cứu động mạch. Hàm lượng Protein trong nhân có tới 9,2%, gồm 20 loại Axit Amin trong đó có 8 loại Axit Amin cần thiết cho cơ thể con người.
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Để hạt mắc ca ở nơi thoáng mát khô ráo, không để hở không khí, khi mở túi nên đóng mép kĩ sau mỗi lần sử dụng, bảo quản tốt nhất ở ngăn mát của tủ lạnh.</p>
+
+                    `
+            },
+            {
+                id: 5,
+                name: "Ngũ cốc dinh dưỡng",
+                unitprice: '98.000đ',
+                img: '../img/nguCoc.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <p style="font-size: 1.2em;">-  Ngũ cốc dinh dưỡng VinaCafé B'fast là nguồn bổ sung canxi cho gia đình mỗi ngày, ngoài ra sản phẩm còn cung cấp thêm chất đạm, chất xơ, phốt phát, carbohydrate,.. có thể dùng thay thế bữa ăn nhẹ cho cả nhà. Ngũ cốc dinh dưỡng VinaCafé B'fast Kachi bịch 500g có 20 gói nhỏ tiện dùng, dễ pha. <br>
+                        -  Khối lượng: 25g x 20 gói. <br>
+                        -  Thành phần: Đường, vảy ngũ cốc 33% (bột mì, glucose syrup, bột đậu nành, chiết xuất mầm lúa mạch, đường, tinh bột bắp, dextrose, bột nếp, bột gạo, fructo syrup, tinh bột biến tính (1414), muối, hương vani tổng hợp), bột kem thực vật (glucose syrup, dầu thực vật, chiết xuất mầm lúa mạch, protein sữa, chất ổn định (340ii, 452i), chất nhũ hóa, chất chống đông). <br>
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp.</p>
+
+                    `
+            },
+            {
+                id: 6,
+                name: "Hạt chia",
+                unitprice: '180.000đ',
+                img: '../img/hat-chia-1kg.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <h2>Thông tin dinh dưỡng</h2><br>
+                    <p style="font-size: 1.2em;">-  Hạt chia được xem là một siêu thực phẩm tốt cho sức khỏe tim và não. Chúng chứa khoảng 20% acid béo omega-3, gấp khoảng 8 lần so với cá hồi. <br>
+                        -  Hàm lượng sắt trong hạt chia gấp 3 lần so với rau chân vịt. <br>
+                        -  Hạt chia cũng giàu chất chống ôxy hóa, lượng chất chống ôxy hóa trong hạt chia gấp 3 lần so với việt quất. <br>
+                        -  Hạt chia còn chứa các acid amin với 8 loại acid amin thiết yếu. <br>
+                        -  Hạt chia cũng được xem là thực phẩm tốt cho người bị tiểu đường vì chúng giúp điều hòa nồng độ glucose. <br>
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Bảo quản nơi khô ráo, thoáng mát, cột kín sau khi sử dụng.</p>
+
+                    `
+            },
+            {
+                id: 8,
+                name: "Đậu xanh",
+                unitprice: '72.000đ',
+                img: '../img/dauXanh.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <h2>Thông tin dinh dưỡng</h2><br>
+                    <p style="font-size: 1.2em;">-  Trong khoảng 202gr đậu xanh luộc chứa các thành phần dinh dưỡng: Calo: 212, Chất béo: 0,8g, Protein: 14,2g, Carb: 38,7g, Chất xơ: 15,4g, Folate (B9): 80% DV, Mangan: 30% DV, Magie: 24% DV, Vitamin B1: 22% DV, Photpho: 20% DV, Sắt: 16% DV, Đồng: 16% DV, Kali: 15% DV, Kẽm: 11% DV.
+                        -  Dự phòng, ngăn ngừa một số bệnh mãn tính, ung thư, tăng cường hệ miễn dịch. <br>
+                        -  Hỗ trợ giảm huyết áp, phòng ngừa bệnh tim. <br>
+                        -  Đậu xanh giúp hạn chế sốc nhiệt. <br>
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Bảo quản nơi khô ráo, thoáng mát, tránh nơi ẩm ướt.</p>
+
+                    `
+            },
+        ]
+        localStorage.setItem('productsNuts', JSON.stringify(listProductsNuts));
+        const productsNuts = JSON.parse(localStorage.getItem('productsNuts'))
+        const displayNuts = (productsNuts) => {
+            const card = 
+                ` <div class="grid__column-3">
+                    <a href="../HTML/productDetail.html" class="container__product-link" onclick="setId(${productsNuts.id})">
+                        <div class="container__product-item">
+                            <div class="container__product-item-img" style="background-image: url(${productsNuts.img})">
+                                <h4 class="container__product-item-name">${productsNuts.name}</h4>
+                                <span class="container__product-item-price">Price: ${productsNuts.unitprice}</span> <br>
+                                <button class="container__product-btn-primary">Mua ngay</button>
+                            </div>
+                         </div>
+                    </a>       
+                </div>
+                `
+                $('.add-card-products-nuts').append(card)
+        } 
+        productsNuts.forEach(el => {
+            displayNuts(el)
+        })
+
+        // list Thit kho
+        const listProductsMeat = [
+            {
+                id: 1,
+                name: "Khô bò miếng mềm",
+                unitprice: '120.000đ',
+                img: '../img/khoBoMiengMem.webp',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <h2>Thông tin dinh dưỡng</h2><br>
+                    <p style="font-size: 1.2em;">-  Trong thịt bò khô có chứa rất nhiều chất dinh dưỡng trong đó chủ yếu là protein, có khoảng 27% protein trong thịt nạc bò. <br>
+                        -  Protein rất tốt cho cơ thể, nó chứa 8 loại Axit amin thiết yếu giúp cung cấp dinh dưỡng, tác động cho sự tăng trưởng và duy trì cơ thể của chúng ta. <br>
+                        -  Thịt bò còn được các vận động viên dùng trong khẩu phần ăn hàng ngày để có đủ chất dinh dưỡng cho thi đấu hoặc giúp các mô cơ bắp phát triển, tái tạo. <br>
+                        -  Trong thịt bò có nhiều chất béo, có thể dùng thịt bò để cung cấp và tích trữ năng lượng cho cơ thể rất tốt. <br>
+                        -  Vitamin khoáng chất cũng có rất nhiều trong thịt bò, có những chất chủ yếu như: Vitamin B12, Kẽm, Sắt, Selenium, Niacin, Vitamin B6… <br>
+                        -  Những chất này giúp cơ thể duy trì và tăng trưởng cho cơ thể, Vitamin B12 cung cấp chất dinh dưỡng quan trọng cho chức năng não bộ cũng như tái tạo hệ thần kinh. 
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Bảo quản nơi khô ráo thoáng mát tránh nguồn nhiệt cao và nơi ẩm ướt.</p>
+
+                    `
+            },
+            {
+                id: 4,
+                name: "Khô gà",
+                unitprice: '129.000đ',
+                img: '../img/khoGa.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <p style="font-size: 1.2em;">-  Tên sản phẩm: Khô gà cay lá chanh, 125g, bịch, mẫu kraft 1 mặt trong. <br>
+                        -  Thương hiệu: L'angfarm. <br>
+                        -  Thịt bò còn được các vận động viên dùng trong khẩu phần ăn hàng ngày để có đủ chất dinh dưỡng cho thi đấu hoặc giúp các mô cơ bắp phát triển, tái tạo. <br>
+                        -  Khối lượng tịnh / Thể tích thực: 125g. <br>
+                        -  Hạn sử dụng: 9 tháng <br>
+                        -  Thành phần: Thịt ức gà 96%, lá chanh 1%, ớt tươi 1%, nước mắm, đường, muối i-ốt, chất điều vị (621- 627 - 631). 
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp.</p>
+
+                    `
+            },
+            {
+                id: 7,
+                name: "Khô heo cháy tỏi",
+                unitprice: '119.000đ',
+                img: '../img/khoHeo.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <p style="font-size: 1.2em;">-  Thành phần: thịt heo, nước mắm, dầu ăn, sả, tỏi, ớt, hành, gừng. <br>
+                        -  Hạn sử dụng: 3 tháng.<br>
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Bảo quản nơi thoáng mát, tránh ánh nắng trực tiếp, giữ kín miệng bao khi chưa dùng hết.</p>
+
+                    `
+            },
+        ]
+        localStorage.setItem('productsMeat', JSON.stringify(listProductsMeat));
+        const productsMeat = JSON.parse(localStorage.getItem('productsMeat'))
+        const displayMeat = (productsMeat) => {
+            const card = 
+                ` <div class="grid__column-3">
+                    <a href="../HTML/productDetail.html" class="container__product-link" onclick="setId(${productsMeat.id})">
+                        <div class="container__product-item">
+                            <div class="container__product-item-img" style="background-image: url(${productsMeat.img})">
+                                <h4 class="container__product-item-name">${productsMeat.name}</h4>
+                                <span class="container__product-item-price">Price: ${productsMeat.unitprice}</span> <br>
+                                <button class="container__product-btn-primary">Mua ngay</button>
+                            </div>
+                         </div>
+                    </a>       
+                </div>
+                `
+                $('.add-card-products-meat').append(card)
+        } 
+        productsMeat.forEach(el => {
+            displayMeat(el)
+        })
+
+        // Thuy hai san khoảng
+        const listProductsSeaFood = [
+            {
+                id: 9,
+                name: "Cá khô",
+                unitprice: '90.000đ',
+                img: '../img/ca-kho-chi-vang.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <p style="font-size: 1.2em;"> Cá chỉ vàng cũng là một trong những loại cá sử dụng để làm cá tẩm gia vị ăn ngon nhất. Cá này thuộc loại cá nước mặn, thân cá có hình thoi và dẹp, bè ra hai bên, dọc lưng cá có 1 sợi chỉ vàng óng ánh chạy dài từ phần đầu thân đến đuôi. Cách làm cá khô tẩm gia vị từ cá chỉ vàng đem đến cho bạn một vị vô cùng đặc biệt. Hương vị thơm ngon ngọt, cảm giác dai dai từ thịt cá, chút  mặn từ biển và đặc biệt loại cá này khi được tẩm gia vị sẽ không còn cảm giác bị tanh.
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Bảo quản nơi khô ráo, thoáng mát, tránh nơi ẩm ướt.</p>
+
+                    `
+            },
+            {
+                id: 10,
+                name: "Mực khô",
+                unitprice: '190.000đ',
+                img: '../img/mucKhoHapCotDua.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <p style="font-size: 1.2em;"> -  Mực khô loại 1 size trung lớn tầm 18 - 22 con/kg, kích cỡ như bàn tay người lớn xếp lại, dài khoảng 18 - 25cm, mình dày, thịt dai. Size mực này không to, không nhỏ được nhiều khách hàng ưu chuộng mua biếu tặng.
+                        -  Định lượng: 500g/bịch hay 1kg/bịch. Hút chân không. <br>
+                        -  Số lượng: 18 - 22 con/kg. <br>
+                        -  Hướng dẫn sử dụng: Nướng ăn với tương ớt, chiên giòn, chiên nước mắm. <br>
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Tủ đông để dùng lâu dài 6 - 12 tháng, hoặc nơi thoáng mát.</p>
+
+                    `
+            },
+        ]
+        localStorage.setItem('productsSeaFood', JSON.stringify(listProductsSeaFood));
+        const productsSeaFood = JSON.parse(localStorage.getItem('productsSeaFood'))
+        const displaySeaFood = (productsSeaFood) => {
+            const card = 
+                ` <div class="grid__column-3">
+                    <a href="../HTML/productDetail.html" class="container__product-link" onclick="setId(${productsSeaFood.id})">
+                        <div class="container__product-item">
+                            <div class="container__product-item-img" style="background-image: url(${productsSeaFood.img})">
+                                <h4 class="container__product-item-name">${productsSeaFood.name}</h4>
+                                <span class="container__product-item-price">Price: ${productsSeaFood.unitprice}</span> <br>
+                                <button class="container__product-btn-primary">Mua ngay</button>
+                            </div>
+                         </div>
+                    </a>       
+                </div>
+                `
+                $('.add-card-products-sea-food').append(card)
+        } 
+        productsSeaFood.forEach(el => {
+            displaySeaFood(el)
+        })
+
+        // thuc pham khac
+        const listProductsOther = [
+            {
+                id: 3,
+                name: "Bún khô",
+                unitprice: '7.000đ',
+                img: '../img/bunKho.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <p style="font-size: 1.2em;">Bún khô tiện lợi, đươc chế biến theo quy trình an toàn, mang đến những sợi bún chất lượng. Bún tươi dạng khô Vinh Thạnh gói 250g chỉ cần luộc qua là có thể chế biến những món ăn yêu thích như xào hoặc dùng chung với nước lèo. Bún khô Vinh Thạnh chất lượng được nhiều người tin dùng
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Để nơi khô ráo, cột kín sau khi sử dụng.</p>
+                    `
+            },
+            {
+                id: 5,
+                name: "Ngũ cốc dinh dưỡng",
+                unitprice: '98.000đ',
+                img: '../img/nguCoc.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <p style="font-size: 1.2em;">-  Ngũ cốc dinh dưỡng VinaCafé B'fast là nguồn bổ sung canxi cho gia đình mỗi ngày, ngoài ra sản phẩm còn cung cấp thêm chất đạm, chất xơ, phốt phát, carbohydrate,.. có thể dùng thay thế bữa ăn nhẹ cho cả nhà. Ngũ cốc dinh dưỡng VinaCafé B'fast Kachi bịch 500g có 20 gói nhỏ tiện dùng, dễ pha. <br>
+                        -  Khối lượng: 25g x 20 gói. <br>
+                        -  Thành phần: Đường, vảy ngũ cốc 33% (bột mì, glucose syrup, bột đậu nành, chiết xuất mầm lúa mạch, đường, tinh bột bắp, dextrose, bột nếp, bột gạo, fructo syrup, tinh bột biến tính (1414), muối, hương vani tổng hợp), bột kem thực vật (glucose syrup, dầu thực vật, chiết xuất mầm lúa mạch, protein sữa, chất ổn định (340ii, 452i), chất nhũ hóa, chất chống đông). <br>
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp.</p>
+
+                    `
+            },
+            {
+                id: 11,
+                name: "Mì gói Hảo",
+                unitprice: '5.000đ',
+                img: '../img/miHaoHao.jpg',
+                describe:  `<br><p style="font-size: 1.3em;">
+                    </p> <br>
+                    <p style="font-size: 1.2em;"> -  Mì Gói Hảo Hảo được đóng gói thành từng thùng, tiện lợi để đem theo trong các chuyến đi dã ngoại, du lịch cùng cả gia đình, hoặc các nhóm bạn đông người. Mì gói giúp giải quyết các tình trạng bận rộn không có thời gian nấu nướng hoặc không quen khẩu vị ở những nơi mà bạn đi du lịch. Sản phẩm được sản xuất trên dây chuyền hiện đại, đảm bảo an toàn cho sức khỏe người dùng. <br>
+                        -  Thành phần an toàn: Thành phần chính của mỗi vắt mì bao gồm: Bột mì, dầu shortening, tinh bột khoai mì, muối, dịch chiết xuất từ cá... Gói súp gồm dầu tinh luyện, , muối, đường, bột ngọt (E621), bột tôm, gia vị (tiêu, ớt, tỏi, rau thơm), hành lá sấy... và các chất phụ gia khác với tỉ lệ thích hợp để đảm bảo an toàn cho sức khỏe người dùng. <br>
+                        -  Công nghệ sản xuất hiện đại: Mì Gói Hảo Hảo được sản xuất dựa trên các tiêu chuẩn và công nghệ của Nhật Bản dưới sự hỗ trợ và giám sát liên tục, tỉ mỉ của các chuyên gia Nhật Bản cùng đội ngũ nhân sự người Việt được đào tạo bài bản để đảm bảo cho chất lượng của sản phẩm.<br>
+                        </p> <br>
+                    <h2>Hướng dẫn bảo quản</h2><br>
+                    <p style="font-size: 1.3em;">Bảo quản nơi khô ráo, thoáng mát.</p>
+
+                    `
+            },
+            {
+        id: 12,
+        name: "Rau củ quả sấy khô",
+        unitprice: '59.000đ',
+        img: '../img/raucuqua.jpg',
+        describe:  `<br><p style="font-size: 1.3em;">
+            </p> <br>
+            <p style="font-size: 1.2em;">- Đà Lạt được phú cho khí hậu cùng đất đai màu mỡ thích hợp để trồng trọt. Rau củ quả và trái cây ở đây vừa tươi ngon mọng nước lại có giá trị dinh dưỡng cao. Để bảo quản được hương vị nguyên chất gửi gắm đến thực khách khắp mọi miền tổ quốc, người dân nơi đây đã chế biến chúng thành những món đặc sản nức danh. Và Rau củ quả sấy thập cẩm chính là món đặc sản nổi tiếng nhất. Được sản xuất từ các loại rau củ quả tươi ngon nhất của xứ sở Đà Lạt, qua công nghệ sấy tiên tiến hiện đại nhất. <br>
+           - Đảm bảo hàng chuẩn xuất khẩu, chất lượng cao, không hôi dầu, không chất bảo quản, không đường, hoàn toàn tử rau củ quả tươi 100% <br>
+           - Thành phần: Mít, chuối, khoai lang, khoai môn, củ dền, khổ qua, bí đỏ, cà rốt, đậu bắp <br>
+           - Chỉ tiêu chất lượng: dưới 4g/100g <br>
+           - Trọng lượng: 500g <br>
+           - Cách sử dụng: Dùng ngay sau khi mở bao bì, không cần chế biến. Làm quà tặng, biếu người thân bạn bè . <br>
+           - Bảo quản kín sau khi mở gói, kéo đường zip để hạn chế không khí vào trong làm ẩm sản phẩm. <br>
+           - Ngày sản xuất: in trên bao bì <br>
+           - Hạn sử dụng: 12 tháng kể từ ngày sản xuất (khuyên dùng trong vòng 6 tháng kể từ ngày sản xuất để thưởng thức sản phẩm chất lượng tốt nhất) <br>
+            LATA’s Đà Lạt – Uy tín, chất lượng tạo niềm tin!<br>
+                </p> <br>
+            <h2>Hướng dẫn bảo quản</h2><br>
+            <p style="font-size: 1.3em;">Bảo quản nơi khô ráo, thoáng mát.</p>
+
+            `
+    },
+        ]
+        localStorage.setItem('productsOther', JSON.stringify(listProductsOther));
+        const productsOther = JSON.parse(localStorage.getItem('productsOther'))
+        const displayOther = (productsOther) => {
+            const card = 
+                ` <div class="grid__column-3">
+                    <a href="../HTML/productDetail.html" class="container__product-link" onclick="setId(${productsOther.id})">
+                        <div class="container__product-item">
+                            <div class="container__product-item-img" style="background-image: url(${productsOther.img})">
+                                <h4 class="container__product-item-name">${productsOther.name}</h4>
+                                <span class="container__product-item-price">Price: ${productsOther.unitprice}</span> <br>
+                                <button class="container__product-btn-primary">Mua ngay</button>
+                            </div>
+                         </div>
+                    </a>       
+                </div>
+                `
+                $('.add-card-products-Other').append(card)
+        } 
+        productsOther.forEach(el => {
+            displayOther(el)
+        })
+    </script>
+</body>
+</html>
